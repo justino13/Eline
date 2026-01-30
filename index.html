@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veux-tu être ma Valentine ? 🌹</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating { animation: float 3s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-pink-100 h-screen flex flex-col items-center justify-center font-sans overflow-hidden">
+
+    <div id="main-card" class="text-center p-8 bg-white rounded-3xl shadow-2xl max-w-sm mx-4">
+        <div id="image-container" class="text-6xl mb-4 floating">❤️</div>
+        <h1 id="question" class="text-2xl font-bold text-gray-800 mb-6">Veux-tu être ma Valentine ?</h1>
+        
+        <div class="flex justify-center gap-4" id="btn-group">
+            <button id="yesBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-8 rounded-full transition-all duration-300">
+                OUI !
+            </button>
+            <button id="noBtn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-8 rounded-full transition-all duration-300">
+                Non
+            </button>
+        </div>
+    </div>
+
+    <!-- Écran de succès (Caché par défaut) -->
+    <div id="success" class="hidden text-center">
+        <h1 class="text-4xl font-bold text-red-600 mb-4">OUAIIIIIS ! ❤️🌹</h1>
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQAsQMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAFAAECBAYDB//EAEAQAAEDAgQFAQUEBwYHAAAAAAEAAgMEEQUSITEGE0FRYSIUcYGRoSMyQlIHFRYkVJLBQ2Kx0eHwJSYzU3Ki0v/EABoBAAIDAQEAAAAAAAAAAAAAAAMEAQIFAAb/xAAkEQACAgICAgMBAQEBAAAAAAAAAQIDERIEIRMxIkFRMnFhFP/aAAwDAQACEQMRAD8AH1NVJPC3ObvaMjTbUC/dE8OooYo2ktudz5QgtLmktH3nXCMUtUHxjLYkCxHULH5GzisGrXjJ2rKaKZjsrANNLhBc74DE4tD3QTtLQet9LIxJOA05jZAMQc72aQstme9uQ9zuo4zeXn0TclgCP4oxelmkiErHNY8tAdGDbXul+2mJHdkLx2DSP6q/T8PRTBz5GZnONyb2uVZHDeHsYSYQ49Lko8rOPnuIFQu+mdcCxI19Jznxhj85BA1RyOTQLGueMFqnchhEBHqaDpfui9JjlI8gue5oI/EgW0OXygugkLUupezRB+icu0QyKvgfqJ4zrpqupqoz+Nv8wSbpkvoPtH9LUrrs0VGU2JI0HVO+riIA5rP5lRqsUpY7/vDC4dAiwql+FZTivsjWPAYcxsB1WNxKVslQXR9L+rui1VUy4jIIoyWRXVPGqeOGODlCwF2nytGqHj6fsBt5Jf8AASWA63UeWLqdkrJnITxr8NdwrMfYI27FpI+AK00tNDVsayXQjVrgbWKxWEOmoKeGedpFNLfI4e9a+mkD4w9tiOhBWXyYNS2Ratr+TvDhUbWlnLzixG+YfVd4qfJG3M1rABa3uWcxbihtFNyaUNmc37+ug8K9hONQ4pTCRgLdbOYehVGr1DZ+iE684C2VkMWSPUdzuhmIS62V50jbXQTE5xGySVxFmNJA7+EKqLlIJJqKOeY/7KdZz9oJf4QfNJN+Cf4A8sQo+WrmqWzMYWsaLMYeo7+9X4sShAHNa0Pt/aAg/NHoKKINyhoAtZD8Qw2HU9egAVVyVJ4aJ8WF0UJsTgtYeo/lZf8AqqkD5aqpa+UZQBZrR+Ef5pVdGKSF8r22aBmtbUoZT48Imk+z+r8Pq0+KPFOcfggcmov5M2kDQ2KwumqT6NNFTwLEm4lSOfkyPY7K8A3+SsVjsrNUjKLUsMZTTWUAMRDZYpmv1Fis/EG5Q07dkarpCA8kENdtdBoxprv0Wrx/5M+9rJLI6/o37JOZL1LvOqZwLY3O0/8ALsr2FYHi+JOa6go5por25mzT8SjtxXsB2USHdb+66YwiV8Tb9bGy3NL+jnGpW/avo4j2MuY/QKcn6NMXiPMiq6JxGvqc4D/BBlyaV7ZdReQEYGQwkMuLBD8WZ/w+J2v39T7wtViPDONQQF0lCZHAeoQPD/iFn8VdlwV0T6WaOVrm3Mlh17bpWuWXlPI7CSM2kmv4snT2A6akb3humhxnhY0dhnYMg7td0KB4fXTYY2ajrNHsDx7iF34IrhSVWVxtG91nfJP+kWMCtjqIgMr22cW90jBYudcvTAXLHyj9GVDyfU52p13Rjhaq5U8sWcAOsRrr5QBjb6DZThu2SwvfonpwUo6iUZOMsnoOIYxHSQAvcC4jRo3KGYXh1VxOJJ5pHQ0jLhrrbnx3UsL4VqaqqpZKuQPhkAdLr6h/dWjxnE4KJ8GGUTWtJcGhrdmhZrnGv41dv9HEpWPM+kY79kKv+L/9EltuXD4+aSr57i3ir/C4yCPbO/8AmKTo4mg5Ixm/MdU4Oii+RrBd5AHkrPw2+hgxfHRnNTFIy5ga0ttfYnqskAb2W/x2poHsLHyNcTu0a3WEqY2NlIgJydidvct3iN6YaM/kJbZTNFwliVNQRVAqH29Yc0DUnT/RWcRxwzG1NEcvTMgnD9J7ViUcbonyRu0JaLfVbXFcNpsOpGCONjXHqN0K51Qsy+2XrVko4zhGIrJ6klr6hxDToGkWHyT0cclbUxU9LC6SeQ2Yxu7iu3EDgWRA9SdkX4SxPD8BgD2fvGM1hDGW2gadAL/U+6yY8rVeUgUqu+2bThrgajpGtkxXl1FU0B8ud14YP/o/RWq7iaghk5FBQurMmgkc7Kz4BRxaqI4co42OdavkdJI7q4XNm39wA+aanpqWOka0xDP3Ss56L59svXVsUJOImOfepwp1MP8Au0ziCD8EVgxtzI2ymo9oo3bT9WeCq01NA5p9FjbdC6SD2TEHU7R9hV3a5g2zW0PvQc13LDQaVWvZsoK0OscxItvsAqeLswbFKaSnxNkL43bnqD3uEP8AaKXA8IgdU5qyqOkcB2A890Mm4hx2puI4aaGPoAz6IUeFo8uWCvT9IynE3CElAHVeFTNrKMH1BpBfGPIG48rKg6iy9Hfik4cP1nSMbcf9eHQtWU4mwwUs5qITeKQXJbYAeVp1N4w3ktGWGUYCYs9iQHxggjoRe6VZX1VZC2KaTOANyNSuFPIchYR8/wCic726I+qzkTnZLLRVcCALNtm6qQ3Dh95v0XSXfLb1OHpPZRi9Tntvm01PlXB5DUPFNfBT8pn3rWzJcOOkqsZZJM8ufcuJPuQZzAtFwZF++zStHpbGNT5KVthCEJSS7D1zlOaTZteWz8zU645z4TLJ2Zo6mLkxOtdp7TIPc5Vnyzy35kz3E93FRFdDdhdT5GvF2OK7ZgXC5DQVuqMV9GTtL9OHLta7dAuNJTMbWs0u29zfVW5XDYHNZRo/VWNB7FdP+WdH+kegU0cTGQSsDQ1o6aWCzuN4i+urXZLcppsPK5PrqkQCnEh5apkWGu42WVXU9tn2aM5JRBmNyXfEBe4urXC8UtFi9LiFRRyvpqeTmOGX72mn1sivC+HMrsTM9S0OEAJDTrqTotnJSxPaWhoCLZy1Q1BIDGpWdsqUNb+tOH4Wlp9ooJHei34CSQR8Cr9NIHsHgLJT1FRgOK82MERHQ9iOyM0+M4fVt5l3Rv68s7/BVtr8y2iXhLTMWGDYlV6enM1cJ7einOYnz0C4muw5seZ1TUuHRjWWPzQDEuKRC+OKJhjp2PzOY03LvLiq08aSlllp2proPOIdjspftG0MF+ndXw1g1A38IXzI3zDEad2eKcAkj8JRBkrXAeobd1Tk7ZJqw0cKuliljsWrN1dIwYdUwvaCyF4tf8rui1Msjcu4sBus9xPMykwwxvOWaoeHkdWtG11bibbHXYUTz+sidSVUkWa5Y61+4UBLfc/NTxGobVysmaLOyBrx5CqXWrH0KTSayWeYHDXWydr2tZZosqw0G9k2byrAMFoP9Q79PK3PDdN7PQG9i5zvV8lmuDoI5sU59SA5kLbtaer+n+a0mDVIbUTwyHUuJF0nyZbQcV9DFMdZKTC9h+VOnzjt9EyytWP5R5o9wcXep7g8+iK33e/uV5rtr9B8lxEhbr/RQfLfW9r9F6IxywXBxOU3HdRje6GZr2dN1yY+w00SfKHMcLW8qMZOzg7vxCUndoXGSpkc05nkG2llXkdYWzae5ci+7gB1VdYr6LbTk8Ho3AlNy8IdUOHqqJSb+BoFpWtBVDBaf2TCqSDbJGAfJ3KIxrzXIntbJmrBaxwUMUw1tZFlyglZWq4WmbJmgzi/5SV6FG0E3NrKy2Btvf0XV8mdXopNRfs8wbw5Wu0dJKR1GYqTuGJQ0ktNl6byGDp9FwmZGAQUX/32NlVCD+jzKkxCqwF5hmBMN/gEapsbpJiHZRYj8D7fRX8XwuKoabNuT1ssfXYM2N7rNOhT9V8LV8vZWUJR9Gjqcbjpmh8ETAQbh8z72+AWQxeqnrHyzOcZXHrsT/opMo2RuuRdSdGLa7JmDjH0BltJYZmmgk2991LIurm/aPcNiUkxkJXV12cS0qIYR5vsFYsi3C+HNxHGIonhvLjHNkzdQFWU1FNv6JdCCuD4e/D6albK0tkmJldp06LhjhdSVEdRED6zrbcI/i1a2TFGxtsBGgHEEuaeNvVrbn3pOhzlNSf2Rbqo4RP9cVf8Q3+VJB9O5ST2kfwT3kVHSi24UQ8dSFUtbcJD3Kx2padLbrceFEzDsSuAaTfKErEbhcckTc4uO9grWERe04nSw/nlaPqqa0HBdK2bF2TO/sQSB5tuh2vWDYxWuz0tkmUZeg2XRsqpgqef4rzbj3k0C4alzW3bbRWKXE3AWqYzYfiGqFmSwuduqG1NZO1zxESFyryQ0maKsx+iguM5J7dVUZiban1Rh2XyEBo6Zz5edPd7+5RNjQwaBWdUYkJJFtzg7c/BDq2Fj81mjXuu9wd7qL7FuqtFYfRLWTOVdLlJNkKrDy4nn+6Vpq7QHbZZTG3iwYDpmWjS3J4YHVbYBBGnlNZSsmTw1qsEHBRjmfA/mRyPZI03a5hsV1I0XCSMh+Zov3UrHpivJhLC1CFDWyOmMkz3PkcdyVYq5HSyue8a2QmMyMLSGjRXDUmQerRXSQhNSXsldJc+a3unVgYO22SXTlpctVyO+FkG3F7FMQSdV2awKQao2JXHOIYVo+Gc9C+KrfpFNIYh8EEDVsfZT+yNI5rfUz7X5koNs1hJ/YSVOscmgZIHajboph+2qCYRiUVRBGHSDOBb3owBfXRZNtThJoJCamhPfe4K5ZQu/JzapjEQ4BDyi5JjA0aKfTuoC6clR7JHUX6BIuABJNgNzdZ/FMdzuNPQAudsZAN/ciVVSseEDnYoLs64zWQ0w+0eAe3VY6rqjUyaCzQbi6ITYfPfnVznXP5t1RrGhr2hosMq06oQiuvYGtznYs+iumTpIw+MVHMQpFMQFJWWSF1EvsU5C5uVkJ2t4wyXM8BJc0lbIrqi3ZIJ04shmwlkjZOApJKCdRgF6HTRf8qUoI3gZp8Lrzx/paT0XqUtLK3hiEQxucW07bZRfYBJc2WNf9KWdI83ha6ne5sZOUOJHcao3RY/PTNDZrSADdBnOtO/pc7Hok7KSNdeifcIzilLsxdnCXRsabiSikYC85COhCsjG8P6VDFhuS/oL+Qo8t3Vjku+DUGXKmbh+N4c0XFQCD0CpzcR0jbhge+3wAWTykXPbdM8WFjpcLlwakc+VMLVeMPxL7OA2iO7WnU+9GOHsObHE6Z1jJe2bt7lncAgazmG13FoA8LfQxtosKFtMrblL8qarXjh0GpW/wA5dsyuPSh1TlBuB5WarXXnKM1chlme890En1leRsH2KPQmooLXJKzs5JJ0yONjlMkkuIYzguL26rsVEhSgNkMnHKeyS62SVsgPEjtZOkkqGlgSSQSK44XQg9VssI44NBhDopG3nijyRAjR52B/wusZdM5ufRUnVCzCkBuTcHg7VdbPXVL6mpeHTSOLnOAtf4LjzCD3XJ+aM2OvuTO9Qu0plJJYMP8A0sGeYmwcWgdl0ZUSuYWuBd5HVD7vBvclTjeRpcqcEF+OcDR4OpXaBk1bPyaSCSaS17MF7BDnS66m5RLh3Ff1di0NRewF2uPhUm2otr2WisvAfwnBMWhew1GHTMa5zdTbb5rScSyGlw3KPS52gQ53HkLXA31HhZrHeIZcVlaG5sg6rJ8V99qclhDynCuOEzlI/Qhn3uqG1ckbAI2EnW5PcndOZRybl5zA9uipucXG5WrGGqF4Sc55J5k91yUgVGDQjY8nS6SiApKoXIlEqSbquOfY1klJMpI1OiSSSgMJJJJccKycpJLiSFlye0dEkkWJiclJT6GYLaBIsFyUySsLokI2hTawHokkuOJZQAUzdDdMkoOGkOi5JJKGNU/yOnCSSqw69k2qSSSqNx9CSSSUFxJJJLiD/9k=" 
+             alt="Bisous" class="rounded-lg shadow-lg mb-4 mx-auto w-64">
+        <p class="text-xl text-pink-600 font-semibold italic">JOYEUSE SAINT VALENTIN VIRTUEL PETITE 😜🌹</p>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const mainCard = document.getElementById('main-card');
+        const success = document.getElementById('success');
+        const question = document.getElementById('question');
+
+        const messages = [
+            "PRINCESSE ???? 👀",
+            "ATTENTION PETITE ",
+            "ASSA LE BOUTON OUI EST JUSTE A COTE",
+            "JOUE PAS A CA PETITE",
+            "OUI OUI OUI OUI OUI OUI",
+            "TU APPUIE ENCORE SUR NON JE TUE TON SOIS DISANT MEILLEUR POTE",
+            "T'ES CULOTTEE TOI SI TU N'ENTENDS PLUS PARLER DE LUI CE SERA DE TA FAUTE",
+            "MANIERE DOUCE : TU AURAS DROIT A UNE GLACE",
+            "UN FAST FOOD",
+            "OOORH ARRETE DE JOUER JE SUIS A COURS D'INSPIRATION LA",
+            "OUI OU RIEN",
+            "OUI OU RIEN SINON JE VAIS TE HANTER",
+            "OUI OU RIENNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+            "KABLI ZIN èèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèè",
+        ];
+
+        let messageIndex = 0;
+        let yesSize = 1;
+
+        noBtn.addEventListener('click', () => {
+            // Change le texte du bouton non
+            noBtn.innerText = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
+
+            // Grossit le bouton OUI à chaque refus
+            yesSize += 0.4;
+            yesBtn.style.transform = `scale(${yesSize})`;
+            
+            // Déplace un peu le bouton non pour le rendre fuyant
+            const x = Math.random() * 20 - 10;
+            const y = Math.random() * 20 - 10;
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        yesBtn.addEventListener('click', () => {
+            mainCard.classList.add('hidden');
+            success.classList.remove('hidden');
+            document.body.style.backgroundColor = "#ffb6c1";
+        });
+    </script>
+</body>
